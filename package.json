@@ -10,7 +10,9 @@
     "request": "2.67.0",
     "rss": "^1.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "1.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
