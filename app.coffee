@@ -71,10 +71,12 @@ class FeedList
     feed.items = feed.items or {}
     # For each feed itemm
     while item = do stream.read
-      # Create a hash with its link and date
-      hash = @dohash [item.link, item.date || item.pubDate].join(" ")
-      # Save the item
-      feed.items[hash] = @buildFeedItem(feed, item) if hash
+      # Items must have a date
+      if date = item.date || item.pubDate
+        # Create a hash with its link and date
+        hash = @dohash [item.link, date].join(" ")
+        # Save the item
+        feed.items[hash] = @buildFeedItem(feed, item) if hash
 
   buildFeedItem: (feed, item)=>
     # Find the author of the item
