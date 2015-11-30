@@ -96,7 +96,7 @@ class FeedList
         # Add feed's items to the output
         items.push feed.items[hash]
     # Sort the list of items
-    items.sort (a,b)-> a.date < b.date
+    items = items.sort (a,b)-> b.date.getTime() - a.date.getTime()
     # Create Rss output
     rss = new Rss title: "Journalism++ Feed"
     # Add every items to the ouput
