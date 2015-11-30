@@ -54,7 +54,7 @@ class FeedList
 
   fetchFeed: (feed, callback=noop)=>
     # Create a new feed parser
-    feedparser = new FeedParser
+    feedparser = new FeedParser normalize: yes
     # Get the feed
     request feed.url
       # Wait for the request to send data
