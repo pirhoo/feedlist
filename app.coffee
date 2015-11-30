@@ -7,7 +7,7 @@ Rss        = require 'rss'
 # Shortcut for empty callback
 noop = -> null
 
-class App
+class FeedList
   # Refresh feed the evry 30 minutes
   REFRESH_INTERVAL: 1000 * 10 * 30
   # Check feed for refreshing every 15 minutes
@@ -104,4 +104,4 @@ class App
     # Send the final XML
     res.send rss.xml(indent: true)
 
-new App
+new FeedList
