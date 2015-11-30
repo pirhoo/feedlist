@@ -56,7 +56,7 @@ class FeedList
     # Create a new feed parser
     feedparser = new FeedParser normalize: yes
     # Get the feed
-    request feed.url
+    request if feed.timestamp then feed.url + "?" + Date.now() else feed.url
       # Wait for the request to send data
       .on 'response', (res)->
         # Pipe response to feedparse

@@ -1,46 +1,57 @@
 [
   {
-    "url": "http://feeds.delicious.com/v2/rss/pierre_romera",
-    "author": "pierre_romera"
+    "url": "http://feeds.delicious.com/v2/rss/pierre_romera/jpp",
+    "author": "pierre_romera",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/vied12",
-    "author": "vied12"
+    "url": "http://feeds.delicious.com/v2/rss/vied12/jpp",
+    "author": "vied12",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/toutenrab",
-    "author": "toutenrab"
+    "url": "http://feeds.delicious.com/v2/rss/toutenrab/jpp",
+    "author": "toutenrab",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/anneliseb",
-    "author": "anneliseb"
+    "url": "http://feeds.delicious.com/v2/rss/anneliseb/jpp",
+    "author": "anneliseb",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/nkb",
-    "author": "nkb"
+    "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
+    "author": "nkb",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/paulloz",
-    "author": "paulloz"
+    "url": "http://feeds.delicious.com/v2/rss/paulloz/jpp",
+    "author": "paulloz",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/ana.isabel",
-    "author": "ana.isabel"
+    "url": "http://feeds.delicious.com/v2/rss/ana.isabel/jpp",
+    "author": "ana.isabel",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/rlaf",
-    "author": "rlaf"
+    "url": "http://feeds.delicious.com/v2/rss/rlaf/jpp",
+    "author": "rlaf",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/smkraus",
-    "author": "smkraus"
+    "url": "http://feeds.delicious.com/v2/rss/smkraus/jpp",
+    "author": "smkraus",
+    "timestamp": true
   },
   {
-    "url": "http://feeds.delicious.com/v2/rss/motet",
-    "author": "motet"
+    "url": "http://feeds.delicious.com/v2/rss/motet/jpp",
+    "author": "motet",
+    "timestamp": true
   },
   {
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
-    "author": "Jens"
+    "author": "Jens",
+    "timestamp": true
   }
 ]
