@@ -100,7 +100,7 @@ class FeedList
     # Sort the list of items
     items = items.sort (a,b)-> b.date.getTime() - a.date.getTime()
     # Create Rss output
-    rss = new Rss title: "Journalism++ Feed"
+    rss = new Rss title: "Journalism++ Feed", site_url: 'http://www.jplusplus.org'
     # Add every items to the ouput
     rss.item item for item in items.slice(0, MAX_ITEMS)
     # Send the final XML
