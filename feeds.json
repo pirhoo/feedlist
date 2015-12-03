@@ -2,56 +2,67 @@
   {
     "url": "http://feeds.delicious.com/v2/rss/pierre_romera/jpp",
     "author": "pierre_romera",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/vied12/jpp",
     "author": "vied12",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/toutenrab/jpp",
     "author": "toutenrab",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/anneliseb/jpp",
     "author": "anneliseb",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
     "author": "nkb",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/paulloz/jpp",
     "author": "paulloz",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/ana.isabel/jpp",
     "author": "ana.isabel",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/rlaf/jpp",
     "author": "rlaf",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/smkraus/jpp",
     "author": "smkraus",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/motet/jpp",
     "author": "motet",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "addauthor"
   },
   {
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
     "author": "Jens",
-    "timestamp": true
+    "timestamp": true,
+    "pipe": "nohtml|addauthor"
   }
 ]

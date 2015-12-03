@@ -3,6 +3,7 @@ FeedParser = require 'feedparser'
 request    = require 'request'
 crypto     = require 'crypto'
 Rss        = require 'rss'
+Pipe       = require './pipe'
 
 # Shortcut for empty callback
 noop = -> null
@@ -79,13 +80,19 @@ class FeedList
         feed.items[hash] = @buildFeedItem(feed, item) if hash
 
   buildFeedItem: (feed, item)=>
-    # Find the author of the item
-    author = item.author or feed.author
+    # Pipe feed (if any)
+    if feed.pipe?
+      # Create a pipe instance for this feed
+      pipe = new Pipe(feed)
+      # Put item into the pipe
+      for method in feed.pipe.split('|')
+        # Item might change
+        item = pipe[method] item
     # Return a new object
-    title: "[" + author + "] " + item.title
+    title: item.title
     description: item.description
     url: item.link or item.guid
-    author: author
+    author: item.author
     date: item.pubDate or item.date
 
   getFeeds: (req, res)=>
