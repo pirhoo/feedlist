@@ -86,8 +86,12 @@ class FeedList
       pipe = new Pipe(feed)
       # Put item into the pipe
       for method in feed.pipe.split('|')
-        # Item might change
-        item = pipe[method] item
+        # The filter may mention arguments
+        args = method.split ':'
+        # Gets filter name
+        filter = args[0]
+        # Reject the first arguments (which is the name of the filter)
+        item = pipe[filter].apply(pipe, [].slice(1, args.length) ) item
     # Return a new object
     title: item.title
     description: item.description
