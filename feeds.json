@@ -63,6 +63,6 @@
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
     "author": "Jens",
     "timestamp": true,
-    "pipe": "nohtml|addauthor"
+    "pipe": "rmel:.diigo-tags|nohtml|addauthor"
   }
 ]

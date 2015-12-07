@@ -91,7 +91,7 @@ class FeedList
         # Gets filter name
         filter = args[0]
         # Reject the first arguments (which is the name of the filter)
-        item = pipe[filter].apply(pipe, [].slice(1, args.length) ) item
+        item = pipe[filter].apply(pipe, args.slice(1, args.length) ) item
     # Return a new object
     title: item.title
     description: item.description
