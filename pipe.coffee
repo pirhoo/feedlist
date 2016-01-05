@@ -19,7 +19,7 @@ class Pipe
     # No closure argument
     (item)=>
       # Find the author of the item
-      author = item.author or @feed.author
+      author = @feed.author or item.author
       item.title = "[" + author + "] " + item.title
       item
   # Remove an HTML element from the item description
@@ -40,6 +40,15 @@ class Pipe
          item.description.toLowerCase().indexOf(word) > -1
         item
       else no
+  # Delete a given word from the title or the description
+  del: (word)=>
+    re = new RegExp word, 'gi'
+    (item)=>
+      item.title = item.title.replace re, ''
+      item.description = item.description.replace re, ''
+      # Returns the item
+      item
+
 
 
 module.exports = exports = Pipe

@@ -6,6 +6,24 @@
     "pipe": "addauthor"
   },
   {
+    "url": "https://github.com/pirhoo.atom",
+    "author": "pierre_romera",
+    "timestamp": true,
+    "pipe": "contains:pirhoo starred|del:pirhoo starred |nohtml|addauthor"
+  },
+  {
+    "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
+    "author": "Jens",
+    "timestamp": true,
+    "pipe": "contains:ddj|rmel:.diigo-tags|nohtml|addauthor"
+  },
+  {
+    "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
+    "author": "nkb",
+    "timestamp": true,
+    "pipe": "addauthor"
+  },
+  {
     "url": "http://feeds.delicious.com/v2/rss/vied12/jpp",
     "author": "vied12",
     "timestamp": true,
@@ -20,12 +38,6 @@
   {
     "url": "http://feeds.delicious.com/v2/rss/anneliseb/jpp",
     "author": "anneliseb",
-    "timestamp": true,
-    "pipe": "addauthor"
-  },
-  {
-    "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
-    "author": "nkb",
     "timestamp": true,
     "pipe": "addauthor"
   },
@@ -58,11 +70,5 @@
     "author": "motet",
     "timestamp": true,
     "pipe": "addauthor"
-  },
-  {
-    "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
-    "author": "Jens",
-    "timestamp": true,
-    "pipe": "contains:ddj|rmel:.diigo-tags|nohtml|addauthor"
   }
 ]
