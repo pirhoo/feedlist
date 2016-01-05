@@ -41,11 +41,11 @@ class Pipe
         item
       else no
   # Delete a given word from the title or the description
-  del: (word)=>
+  del: (word, replacement='')=>
     re = new RegExp word, 'gi'
     (item)=>
-      item.title = item.title.replace re, ''
-      item.description = item.description.replace re, ''
+      item.title = item.title.replace re, replacement
+      item.description = item.description.replace re, replacement
       # Returns the item
       item
 
