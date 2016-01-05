@@ -1,5 +1,6 @@
 striptags = require 'striptags'
 cheerio   = require 'cheerio'
+oembed    = require 'oembed'
 q         = require 'q'
 
 class Pipe
@@ -51,6 +52,27 @@ class Pipe
       item.description = item.description.replace re, replacement
       # Returns the item
       item
+  # Extract oembed with embedly
+  oembed: =>
+    # Set the embedly key from env
+    oembed.EMBEDLY_KEY = process.env.EMBEDLY_KEY
+    (item)=>
+      # Deferred result
+      deferred = do q.defer
+      # Build item uri
+      uri = item.url or item.link or item.guid
+      # Fetch!
+      oembed.fetch uri, maxwidth: 1920, (error, result)->
+        # Reject errored page
+        if error? then do deferred.reject
+        else
+          # Update the description
+          item.description = result.description
+          # Resolve the promise
+          deferred.resolve item
+      # Return a promise
+      deferred.promise
+
 
 
 module.exports = exports = Pipe

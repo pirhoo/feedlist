@@ -9,7 +9,7 @@
     "url": "https://github.com/pirhoo.atom",
     "author": "pierre_romera",
     "timestamp": true,
-    "pipe": "nohtml|contains:pirhoo starred|del:pirhoo starred:Starred repository|addauthor"
+    "pipe": "nohtml|contains:pirhoo starred|del:pirhoo starred:Starred repository|oembed|addauthor"
   },
   {
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
