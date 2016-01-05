@@ -3,6 +3,7 @@ FeedParser = require 'feedparser'
 request    = require 'request'
 crypto     = require 'crypto'
 Rss        = require 'rss'
+q          = require 'q'
 Pipe       = require './pipe'
 
 # Shortcut for empty callback
@@ -79,11 +80,14 @@ class FeedList
         # Create a hash with its link and date
         if hash = @dohash [item.link, date].join(" ")
           # Compiled the feed item
-          if compiled = @buildFeedItem(feed, item)
+          @buildFeedItem(feed, item).then (compiled)->
             # Save the item
             feed.items[hash] = compiled
 
   buildFeedItem: (feed, item)=>
+    deferred = do q.defer
+    # A list of promises to solve through the pipes
+    promises = []
     # Pipe feed (if any)
     if feed.pipe?
       # Create a pipe instance for this feed
@@ -97,15 +101,27 @@ class FeedList
         # Pipe must exist
         if pipe[filter]?
           # Reject the first arguments (which is the name of the filter)
-          item = pipe[filter].apply(pipe, args.slice(1, args.length) ) item
-        # If a pipe returns false, the item is rejected
-        return no unless item
-    # Return a new object
-    title: item.title
-    description: item.description
-    url: item.link or item.guid
-    author: item.author
-    date: item.pubDate or item.date
+          promise = (filter, args)->
+            (itemSoFar)->
+              if itemSoFar
+                pipe[filter].apply(pipe, args.slice(1, args.length) ) itemSoFar
+          # Add the pipe promise as a closure to the list
+          promises.push promise(filter, args)
+    # Resolve all promises
+    promises.reduce( q.when, q(item) ).then (item)->
+      # The item must have been succesfully treated
+      if item?
+        # Resolve a new object
+        deferred.resolve
+          title: item.title
+          description: item.description
+          url: item.link or item.guid
+          author: item.author
+          date: item.pubDate or item.date
+      # The object have been rejected
+      else do deferred.reject
+    # Return a promise
+    deferred.promise
 
   getFeeds: (req, res)=>
     # A list of items to display

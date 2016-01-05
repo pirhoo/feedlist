@@ -1,5 +1,6 @@
 striptags = require 'striptags'
-cheerio   = require('cheerio')
+cheerio   = require 'cheerio'
+q         = require 'q'
 
 class Pipe
    # Current feed is simply saved as an attribute
@@ -36,10 +37,12 @@ class Pipe
     # For quickest search
     word = do word.toLowerCase
     (item)=>
-      if item.title.toLowerCase().indexOf(word) > -1 or
-         item.description.toLowerCase().indexOf(word) > -1
-        item
-      else no
+      # A filter can also returns a promise
+      q.fcall ->
+        if item.title.toLowerCase().indexOf(word) > -1 or
+           item.description.toLowerCase().indexOf(word) > -1
+          item
+        else no
   # Delete a given word from the title or the description
   del: (word, replacement='')=>
     re = new RegExp word, 'gi'
@@ -48,7 +51,6 @@ class Pipe
       item.description = item.description.replace re, replacement
       # Returns the item
       item
-
 
 
 module.exports = exports = Pipe
