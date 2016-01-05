@@ -12,10 +12,16 @@
     "pipe": "nohtml|filter:pirhoo starred|replace:pirhoo starred:Starred repository|oembed|addauthor"
   },
   {
+    "url": "https://github.com/rlafuente.atom",
+    "author": "rlaf",
+    "timestamp": true,
+    "pipe": "nohtml|filter:rlafuente starred|replace:rlafuente starred:Starred repository|oembed|addauthor"
+  },
+  {
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
     "author": "Jens",
     "timestamp": true,
-    "pipe": "filter:ddj|rmel:.diigo-tags|nohtml|addauthor"
+    "pipe": "filter:ddj|rmel:.diigo-taags|nohtml|addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
