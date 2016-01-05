@@ -62,6 +62,8 @@ class FeedList
       .on 'response', (res)->
         # Pipe response to feedparse
         @pipe feedparser
+      # Unable to fetch the feed, just ignore it
+      .on 'error', noop
     # When parsing ends
     feedparser.on 'readable', -> callback feed, @
 
@@ -75,9 +77,11 @@ class FeedList
       # Items must have a date
       if date = item.date || item.pubDate
         # Create a hash with its link and date
-        hash = @dohash [item.link, date].join(" ")
-        # Save the item
-        feed.items[hash] = @buildFeedItem(feed, item) if hash
+        if hash = @dohash [item.link, date].join(" ")
+          # Compiled the feed item
+          if compiled = @buildFeedItem(feed, item)
+            # Save the item
+            feed.items[hash] = compiled
 
   buildFeedItem: (feed, item)=>
     # Pipe feed (if any)
@@ -90,8 +94,12 @@ class FeedList
         args = method.split ':'
         # Gets filter name
         filter = args[0]
-        # Reject the first arguments (which is the name of the filter)
-        item = pipe[filter].apply(pipe, args.slice(1, args.length) ) item
+        # Pipe must exist
+        if pipe[filter]?
+          # Reject the first arguments (which is the name of the filter)
+          item = pipe[filter].apply(pipe, args.slice(1, args.length) ) item
+        # If a pipe returns false, the item is rejected
+        return no unless item
     # Return a new object
     title: item.title
     description: item.description
