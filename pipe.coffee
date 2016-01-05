@@ -34,7 +34,7 @@ class Pipe
       item.description = do dom.html
       item
   # Filter feed that do not contains a given word
-  contains: (word)=>
+  filter: (word)=>
     # For quickest search
     word = do word.toLowerCase
     (item)=>
@@ -44,8 +44,8 @@ class Pipe
            item.description.toLowerCase().indexOf(word) > -1
           item
         else no
-  # Delete a given word from the title or the description
-  del: (word, replacement='')=>
+  # Replace a given word from the title or the description
+  replace: (word, replacement='')=>
     re = new RegExp word, 'gi'
     (item)=>
       item.title = item.title.replace re, replacement
