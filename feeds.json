@@ -12,6 +12,12 @@
     "pipe": "nohtml|filter:pirhoo starred|replace:pirhoo starred:Starred repository|oembed|addauthor"
   },
   {
+    "url": "https://zapier.com/engine/rss/288420/pirhoo/",
+    "author": "pierre_romera",
+    "timestamp": true,
+    "pipe": "addauthor"
+  },
+  {
     "url": "https://github.com/rlafuente.atom",
     "author": "rlaf",
     "timestamp": true,
