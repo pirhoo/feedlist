@@ -1,9 +1,9 @@
 [
   {
-    "url": "http://feeds.delicious.com/v2/rss/pierre_romera/jpp",
+    "url": "https://www.diigo.com/rss/user/pirhoo/jpp",
     "author": "pierre_romera",
     "timestamp": true,
-    "pipe": "addauthor"
+    "pipe": "rmel:.diigo-tags|nohtml|addauthor"
   },
   {
     "url": "https://github.com/pirhoo.atom",
@@ -27,7 +27,7 @@
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
     "author": "Jens",
     "timestamp": true,
-    "pipe": "filter:ddj|rmel:.diigo-taags|nohtml|addauthor"
+    "pipe": "rmel:.diigo-tags|nohtml|addauthor"
   },
   {
     "url": "http://feeds.delicious.com/v2/rss/nkb/jpp",
