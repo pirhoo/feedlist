@@ -25,7 +25,8 @@ class FeedList
     # Create an express app
     @app = do express
     # Bind endpoint
-    @app.get '/', @getFeeds
+    @app.get '/feed.json', @json
+    @app.get /^\/(feed)?|(feed.rss)?$/, @rss
     # Fetch every feed once
     do @fetchAll
     # Set an interval to refersh the feed
@@ -122,8 +123,7 @@ class FeedList
       else do deferred.reject
     # Return a promise
     deferred.promise
-
-  getFeeds: (req, res)=>
+  items: =>
     # A list of items to display
     items = []
     # For each feed
@@ -134,11 +134,17 @@ class FeedList
         items.push feed.items[hash]
     # Sort the list of items
     items = items.sort (a,b)-> b.date.getTime() - a.date.getTime()
+  rss: (req, res)=>
+    # Get items
+    items = @items()
     # Create Rss output
     rss = new Rss title: "Journalism++ Feed", site_url: 'http://www.jplusplus.org'
     # Add every items to the ouput
     rss.item item for item in items.slice(0, MAX_ITEMS)
     # Send the final XML
     res.send rss.xml(indent: true)
+  json: (req, res)=>
+    # Renders items directly
+    res.json @items()
 
 new FeedList

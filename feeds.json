@@ -1,15 +1,15 @@
 [
   {
+    "url": "https://github.com/pirhoo.atom",
+    "author": "pierre_romera",
+    "timestamp": true,
+    "pipe": "nohtml|filter:pirhoo starred|replace:pirhoo starred:Starred repository|addauthor"
+  },
+  {
     "url": "https://www.diigo.com/rss/user/pirhoo/jpp",
     "author": "pierre_romera",
     "timestamp": true,
     "pipe": "rmel:.diigo-tags|nohtml|addauthor"
-  },
-  {
-    "url": "https://github.com/pirhoo.atom",
-    "author": "pierre_romera",
-    "timestamp": true,
-    "pipe": "nohtml|filter:pirhoo starred|replace:pirhoo starred:Starred repository|oembed|addauthor"
   },
   {
     "url": "https://zapier.com/engine/rss/288420/pirhoo/",
@@ -21,7 +21,7 @@
     "url": "https://github.com/rlafuente.atom",
     "author": "rlaf",
     "timestamp": true,
-    "pipe": "nohtml|filter:rlafuente starred|replace:rlafuente starred:Starred repository|oembed|addauthor"
+    "pipe": "nohtml|filter:rlafuente starred|replace:rlafuente starred:Starred repository|addauthor"
   },
   {
     "url": "https://www.diigo.com/rss/user/Jensfinnas/ddj",
